@@ -1,0 +1,282 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/***Navbar****/
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 2rem;
+    background-color: rgba(0, 0, 0, 0.817);
+    color: white;
+}
+
+.logo {
+    margin: 0;
+    font-size: 1.5rem;
+    flex: 1;
+}
+
+.enlaces-navbar {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+}
+
+.enlaces-navbar a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+.cerrar-sesion {
+    background-color: aqua;
+    color: white;
+    font-weight: bold;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 1rem;
+}
+
+/***Íconos****/
+
+.icono-editar {
+    width: 14px;
+    height: 14px;
+}
+
+/****Contenedor principal****/
+.contenedor {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 2rem;
+    align-items: flex-start;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+
+/****Columna izquierda****/
+.columna-izquierda {
+    flex: 2;
+}
+
+/****Perfil******/
+.perfil {
+    max-width: 500px;
+    width: 100%;
+    margin: 0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+    padding: 1.5rem;
+    position: relative;
+}
+
+.edit-profile {
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.barra-superior {
+    height: 80px;
+    background-color: #00cbe6;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
+.foto-perfil-principal {
+    width: 100px;
+    height: 100px;
+    border-radius: 100%;
+    position: absolute;
+    top: 60px;
+    left: 20%;
+    transform: translateX(-50%);
+    border: 3px solid white;
+    z-index: 10;
+}
+
+.contenido-perfil {
+    padding-top: 60px;
+}
+
+/****Educación****/
+.educacion {
+    max-width: 500px;
+    width: 100%;
+    margin: 0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    padding: 1.5rem;
+}
+
+
+/****Columna derecha****/
+.columna-derecha {
+    flex: 1;
+}
+
+.solicitudes {
+    max-width: 300px;
+    width: 100%;
+    margin: 0 auto 2rem auto;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    padding: 1.5rem;
+}
+
+.solicitudes h2 {
+    margin: 0 0 1rem;
+    font-size: 22px;
+}
+
+.solicitud {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+/***Foto de perfil solicitantes****/
+.foto-solicitudes {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    border: 2px solid #00cbe6;
+}
+
+/***Nombre de quién solicita***/
+.nombre-solicitud {
+    flex: 1;
+    margin: 0;
+    font-weight: 500;
+}
+
+/***ícono Aceptar o rechazar***/
+.icono-solicitud {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    cursor: pointer;
+    padding: 4px;
+}
+
+/***Tarjeta conexiones**/
+.conexiones {
+    max-width: 300px;
+    width: 100%;
+    margin: 0 auto;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    padding: 1.5rem;
+}
+
+.conexiones h2 {
+    margin: 0 0 1rem;
+    font-size: 22px;
+}
+
+.conexion {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 0.8rem;
+}
+
+/**Fotos perfil***/
+.foto-perfil {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+}
+
+/*Responsividad para celulares*/
+@media (max-width: 768px) {
+    .contenedor {
+        flex-direction: column;
+        padding: 1rem;
+        gap: 1.5rem;
+    }
+
+    .columna-izquierda,
+    .columna-derecha {
+        width: 100%;
+        flex: unset;
+    }
+
+    .perfil,
+    .educacion,
+    .solicitudes,
+    .conexiones {
+        max-width: 100%;
+        margin: 0 0 2rem 0;
+    }
+
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 1rem;
+        gap: 1rem;
+    }
+
+    .enlaces-navbar {
+        flex-direction: column;
+        gap: 0.5rem;
+        align-items: flex-start;
+    }
+
+    .cerrar-sesion {
+        align-self: flex-start;
+        margin-top: 1rem;
+    }
+
+    .foto-perfil-principal {
+        left: 16px;
+        top: 50px;
+        transform: none;
+    }
+
+    .contenido-perfil {
+        padding-top: 80px;
+    }
+}
+
+/*Para pantallas grandes*/
+@media (min-width: 1024px) {
+    .contenedor {
+        max-width: 1200px;
+        margin: 0 auto;
+        gap: 1.5rem;
+    }
+
+    .perfil {
+        margin-left: 0;
+        margin-right: auto;
+    }
+
+    .solicitudes,
+    .conexiones {
+        margin: 0 0 2rem auto;
+    }
+}
+
+/***Footer****/
+.footer {
+    text-align: center;
+    padding: 1rem;
+    background-color: #f2f2f2;
+    color: #555;
+    font-size: 0.9rem;
+    margin-top: 2rem;
+}
