@@ -36,7 +36,10 @@
                     <p>Apasionada por crear experiencias digitales hermosas y funcionales.
                         Cuando no está codificando, disfruta explorando los fiordos noruegos y
                         capturando la belleza de la naturaleza en la fotografía.</p>
-                    <a href="#" class="edit-profile"><img src="img/gear-solid.svg" alt="" class="icono-editar">
+
+                    <!--Botón editar perfil-->
+                    <a href="#" id="editProfileBtn" class="edit-profile"><img src="img/gear-solid.svg" alt=""
+                            class="icono-editar">
                         Edit profile
                     </a>
                 </div>
@@ -56,25 +59,29 @@
             <!--Solicitudes-->
             <div class="solicitudes">
                 <div class="solicitudes-titulo">
-                <h2>Solicitudes de Conexión (2)</h2>
+                    <h2 class="requests-count">Solicitudes de Conexión (2)</h2>
                 </div>
-                <div class="solicitud">
+                <div class="solicitud" id="kai">
                     <img src="img/hombre1.png" alt="Foto de perfil" class="foto-solicitudes">
                     <p class="nombre-solicitud">Kai Schröder</p>
-                    <img src="img/circle-check-regular.svg" alt="Ícono aceptar solicitud" class="icono-solicitud">
-                    <img src="img/circle-xmark-regular.svg" alt="Ícono rechazar solicitud" class="icono-solicitud">
+                    <img src="img/circle-check-regular.svg" alt="Aceptar" class="icono-solicitud"
+                        onclick="accept('kai')">
+                    <img src="img/circle-xmark-regular.svg" alt="Rechazar" class="icono-solicitud"
+                        onclick="reject('kai')">
                 </div>
-                <div class="solicitud">
+                <div class="solicitud" id="amira">
                     <img src="img/perfil2.png" alt="Foto de perfil" class="foto-solicitudes">
                     <p class="nombre-solicitud">Amira El-Masry</p>
-                    <img src="img/circle-check-regular.svg" alt="Ícono aceptar solicitud" class="icono-solicitud">
-                    <img src="img/circle-xmark-regular.svg" alt="Ícono rechazar solicitud" class="icono-solicitud">
+                    <img src="img/circle-check-regular.svg" alt="Aceptar" class="icono-solicitud"
+                        onclick="accept('amira')">
+                    <img src="img/circle-xmark-regular.svg" alt="Rechazar" class="icono-solicitud"
+                        onclick="reject('amira')">
                 </div>
             </div>
 
             <!--Tus conexiones-->
             <div class="conexiones">
-                <h2>Tus conexiones (+500)</h2>
+                <h2 class="connections-count">Tus conexiones (+500)</h2>
                 <div class="conexion">
                     <img src="img/hombre1.png" alt="Foto de perfil" class="foto-perfil">
                     <p>Adrien Desplatz</p>
@@ -103,8 +110,53 @@
         </section>
     </main>
 
+    <!--Footer-->
     <footer class="footer">
-    Hecho con ❤️ por Massiel Díaz - 2025
-</footer>
+        Hecho con ❤️ por Massiel Díaz - 2025
+    </footer>
+
+    <!--JavaScript-->
+    <script>
+
+        //Aceptar conexiones
+        let connectionCount = 500;
+        let requestCount = 2;
+
+        const connectionsText = document.querySelector(".connections-count");
+        const requestsText = document.querySelector(".requests-count");
+
+        function accept(id) {
+            document.getElementById(id).remove();
+            connectionCount++;
+            requestCount--;
+            connectionsText.innerText = `Tus conexiones (+${connectionCount})`;
+            requestsText.innerText = `Solicitudes de Conexión (${requestCount})`;
+        }
+
+        function reject(id) {
+            document.getElementById(id).remove();
+            requestCount--;
+            requestsText.innerText = `Solicitudes de Conexión (${requestCount})`;
+        }
+
+        //Editar perfil
+        document.getElementById("editProfileBtn").addEventListener("click", function (e) {
+            e.preventDefault(); // Evita que se recargue la página
+            editProfile();
+
+            function editProfile() {
+                document.querySelector(".contenido-perfil h1").innerText = "Massiel Díaz";
+                document.querySelector(".descripcion").innerText = "Santiago, Chile";
+                document.querySelector(".contenido-perfil p:nth-of-type(2)").innerText =
+                    "Desarrolladora Web | Apasionada por el diseño y el aprendizaje constante.";
+                document.querySelector(".contenido-perfil p:nth-of-type(3)").innerText =
+                    "Comprometida con crear experiencias digitales significativas, mientras explora nuevas tecnologías y se inspira en la naturaleza.";
+            }
+
+        });
+
+
+    </script>
 </body>
+
 </html>
